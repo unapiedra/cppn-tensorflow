@@ -33,9 +33,12 @@ import matplotlib.pyplot as plt
 import images2gif
 from images2gif import writeGif
 
-mgc = get_ipython().magic
-mgc(u'matplotlib inline')
-pylab.rcParams['figure.figsize'] = (10.0, 10.0)
+try:
+    mgc = get_ipython().magic
+    mgc(u'matplotlib inline')
+    pylab.rcParams['figure.figsize'] = (10.0, 10.0)
+except NameError:
+    pass
 
 class Sampler():
   def __init__(self, z_dim = 8, c_dim = 1, scale = 10.0, net_size = 32):
